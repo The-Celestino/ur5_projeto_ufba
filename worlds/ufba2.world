@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="ufba_modificado">
+
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <physics type="ode">
+      <max_step_size>0.002</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>500</real_time_update_rate>
+    </physics>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+
+    <include><uri>model://ground_plane</uri></include>
+
+    <model name='parede_norte'><static>true</static><pose>0 5 1.4 0 0 0</pose><link name='link'><collision name='collision'><geometry><box><size>10 0.2 2.8</size></box></geometry></collision><visual name='visual'><geometry><box><size>10 0.2 2.8</size></box></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material></visual></link></model>
+    <model name='parede_sul'><static>true</static><pose>0 -5 1.4 0 0 0</pose><link name='link'><collision name='collision'><geometry><box><size>10 0.2 2.8</size></box></geometry></collision><visual name='visual'><geometry><box><size>10 0.2 2.8</size></box></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material></visual></link></model>
+    <model name='parede_leste'><static>true</static><pose>5 0 1.4 0 0 1.5707</pose><link name='link'><collision name='collision'><geometry><box><size>10 0.2 2.8</size></box></geometry></collision><visual name='visual'><geometry><box><size>10 0.2 2.8</size></box></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material></visual></link></model>
+    <model name='parede_oeste'><static>true</static><pose>-5 0 1.4 0 0 1.5707</pose><link name='link'><collision name='collision'><geometry><box><size>10 0.2 2.8</size></box></geometry></collision><visual name='visual'><geometry><box><size>10 0.2 2.8</size></box></geometry><material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Bricks</name></script></material></visual></link></model>
+    
+    <model name="bancada_robo">
+        <static>true</static>
+        <pose>0 3.5 0.45 0 0 3.1415</pose> <link name="link">
+            <collision name="collision"><geometry><box><size>2.0 0.8 0.9</size></box></geometry></collision>
+            <visual name="visual">
+                <geometry><box><size>2.0 0.8 0.9</size></box></geometry>
+                <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/DarkGrey</name></script></material>
+            </visual>
+        </link>
+    </model>
+
+    <include>
+      <uri>model://bookshelf</uri>
+      <name>prateleira_1</name>
+      <pose>-4.2 1.5 0 0 0 1.5707</pose>
+    </include>
+    <include>
+      <uri>model://bookshelf</uri>
+      <name>prateleira_2</name>
+      <pose>-4.2 -1.5 0 0 0 1.5707</pose>
+    </include>
+
+    <model name="caixa_chao_1">
+      <include><uri>model://cardboard_box</uri></include>
+      <pose>-2 -2 0.15 0 0 0.7</pose>
+    </model>
+    <model name="caixa_chao_2">
+      <include><uri>model://cardboard_box</uri></include>
+      <pose>-2.5 -2.5 0.15 0 0 0.2</pose>
+    </model>
+    <model name="caixa_na_prateleira_1">
+      <include><uri>model://cardboard_box</uri></include>
+      <pose>-4.1 1.5 0.7 0 0 0</pose>
+    </model>
+
+    <include>
+      <uri>model://table</uri>
+      <name>mesa_escritorio</name>
+      <pose>3.5 -4 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://chair</uri>
+      <name>cadeira_escritorio</name>
+      <pose>2.8 -4 0 0 0 1.5707</pose>
+    </include>
+
+    <include>
+      <uri>model://person_standing</uri>
+      <name>funcionario_1</name>
+      <pose>-4.0 -0.5 0 0 0 0</pose>
+    </include>
+
+    <model name="placa_ufba_na_parede">
+      <static>true</static>
+      <pose>0 4.89 1.8 0 0 0</pose> <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1.024 0.01 0.512</size></box></geometry> <material>
+            <script>
+              <uri>file://materials/scripts/ufba_logo.material</uri>
+              <name>Ufba/Logo</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+  </world>
+</sdf>

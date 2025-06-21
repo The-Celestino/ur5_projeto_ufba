@@ -1,0 +1,15 @@
+material Ufba/Logo
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ../textures/placa_ufba.png
+        filtering anisotropic
+        max_anisotropy 16
+      }
+    }
+  }
+}
