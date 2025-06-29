@@ -1,0 +1,5 @@
+# Requisição (pode ser vazia, apenas para acionar)
+---
+# Resposta
+string[] object_names
+geometry_msgs/Pose[] object_poses
